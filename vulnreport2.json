@@ -1,0 +1,67 @@
+{
+    "records": [
+        {
+            "vi_source_recommendation": "Configure XML parsers securely to disable the processing of external entities (both general and parameter entities) and DTDs. Use features like `factory.setFeature(XMLConstants.FEATURE_SECURE_PROCESSING, true);` in Java or equivalent settings in other languages to prevent XXE attacks.",
+            "vi_description": "XML External Entity (XXE) Injection",
+            "vi_line_number": "3",
+            "vi_source_notes": "config.xml"
+        },
+
+        {
+            "vi_source_recommendation": "Use parameterized queries (e.g., PreparedStatement in JDBC) to handle user input in SQL queries. Avoid direct concatenation of user input into query strings to prevent SQL injection.",
+            "vi_description": "SQL Injection (Simulated)",
+            "vi_line_number": "22",
+            "vi_source_notes": "SearchServlet.java"
+        },
+
+        {
+            "vi_source_recommendation": "Sanitize and validate user input before using it in file system operations. Ensure the resulting path is canonicalized and restricted to an intended base directory to prevent path traversal attacks.",
+            "vi_description": "Path Traversal (Simulated)",
+            "vi_line_number": "23",
+            "vi_source_notes": "SearchServlet.java"
+          },
+
+        {
+            "vi_source_recommendation": "Increase the token length.",
+            "vi_description": "Insufficient Token Length - Very easy to guess or brute-force",
+            "vi_line_number": "25",
+            "vi_source_notes": "TokenGenerator.java"
+        },
+
+        {
+            "vi_source_recommendation": "Sanitize user input used in HTML output by encoding special characters (e.g., using OWASP ESAPI or similar libraries) to prevent script execution.",
+            "vi_description": "Cross-Site Scripting (Reflected)",
+            "vi_line_number": "19",
+            "vi_source_notes": "SearchServlet.java"
+        },
+        
+          {
+            "vi_source_recommendation": "Do not hardcode secrets or sensitive configuration directly in the source code. Use external configuration sources, environment variables, or secrets management systems.",
+            "vi_description": "Hardcoded Secret",
+            "vi_line_number": "15",
+            "vi_source_notes": "TokenGenerator.java"
+        },
+
+        {
+            "vi_source_recommendation": "Use cryptographically secure pseudo-random number generators (CSPRNGs), such as `java.security.SecureRandom`, for generating security-sensitive values like session tokens, passwords, or cryptographic keys.",
+            "vi_description": "Use of Insecure Random Number Generator",
+            "vi_line_number": "9",
+            "vi_source_notes": "TokenGenerator.java"
+        },
+
+        {
+            "vi_source_recommendation": "Avoid writing untrusted data directly to the DOM using methods like 'innerHTML'. Instead, use safer methods like 'textContent' or 'innerText' which do not interpret the string as HTML. If HTML rendering is required, use a robust sanitization library (like DOMPurify) to clean the input before rendering.",
+            "vi_description": "DOM-Based Cross-Site Scripting (XSS)",
+            "vi_line_number": "16",
+            "vi_source_notes": "dom.html"
+        },
+
+        {
+            "vi_source_recommendation": "Avoid directly embedding user input in log files when possible. Use info and debug levels appropriately to avoid logging sensitive information",
+            "vi_description": "Improper Output Neutralization for Logs",
+            "vi_line_number": "29",
+            "vi_source_notes": "application.yaml"
+        }
+        
+    ]
+}
